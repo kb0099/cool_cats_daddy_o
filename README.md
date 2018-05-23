@@ -8,12 +8,11 @@ Once you [install Elm](https://guide.elm-lang.org/install.html) and clone this r
 
 The application currently pulls down a random page of jokes. Then for each joke it uses the length of the joke text to determine an avatar.
 
-Your task will be to add new features to the app. Spend up to 6 hours adding features, getting as far down the list as you can. When you are finished, submit a pull request against this repository.
+Your task will be to add new features to the app. Select and implement at least **3** of the following features. You shouldn't spend more than **6 hours** on this challenge. When you are finished, submit a pull request against this repository.
 
 ## New Features to Add
 
-* Calculate and show word count on each joke. (Please write the word count function yourself instead of using a library.)
-* Add the ability to sort by word count.
+* Calculate and show word count on each joke. (Please write the word count function yourself instead of using a library.) Add the ability to sort by word count.
 * Add a list of "profanity" filters that allow you to replace one word with another, e.g.
   * `Replace [ dog ] with [ puppy ]`
   * `Replace [ kitten ] with [ 🐈 ]`
