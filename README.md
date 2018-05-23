@@ -11,6 +11,9 @@ The application currently pulls down a random page of jokes. Then for each joke 
 Your task will be to add new features to the app.
 Implement the **2** core features, and pick a bonus feature if time permits.
 You shouldn't spend more than **6 hours** on this challenge.
+
+It's expected that you may be new to Elm; one of the goals of this exercise is to see how well you can adapt to new languages or frameworks.
+
 When you are finished, submit a pull request against this repository.
 
 ## New Features to Add
