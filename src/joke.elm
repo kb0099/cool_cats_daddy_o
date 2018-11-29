@@ -3,25 +3,25 @@ module Joke exposing (..)
 import Http
 import Json.Decode exposing (..)
 
-type alias Joke = {
-  avatarUrl : String,
-  id : String,
-  message : String
-}
+type alias Joke = 
+  { avatarUrl : String
+  , id : String
+  , message : String
+  }
 
 totalCatImages : number
 totalCatImages = 16
 
 imageIdFromMessage : String -> Int
 imageIdFromMessage message =
-  (String.length message) % totalCatImages
+  modBy totalCatImages (String.length message)
 
 imageFromMessage : String -> String
 imageFromMessage message =
   let 
     imgId = imageIdFromMessage message
   in
-    "http://placekitten.com/452/450?image=" ++ (toString imgId)
+    "http://placekitten.com/452/450?image=" ++ (String.fromInt imgId)
 
 buildJoke : String -> String -> Joke
 buildJoke id joke =
@@ -36,8 +36,10 @@ jokeDecoder = Json.Decode.map2 (buildJoke) (field "id" string) (field "joke" str
 jokesDecoder : Decoder (List Joke)
 jokesDecoder = (field "results" (Json.Decode.list jokeDecoder))
 
-jokeRequest : Int -> Http.Request (List Joke)
-jokeRequest page =
+type alias JokeReceiver = Result Http.Error (List Joke)
+
+jokeRequest : Int -> (JokeReceiver -> msg) -> Cmd.Cmd msg
+jokeRequest page jokeReceiver =
     let
         headers =
             [ Http.header "Accept" "application/json"
@@ -46,11 +48,11 @@ jokeRequest page =
     Http.request -- This line is missing from your code
         { method = "GET"
         , headers = headers
-        , url = "https://icanhazdadjoke.com/search?page=" ++ (toString page)
+        , url = "https://icanhazdadjoke.com/search?page=" ++ (String.fromInt page)
         , body = Http.emptyBody
-        , expect = Http.expectJson jokesDecoder
+        , expect = Http.expectJson jokeReceiver jokesDecoder
         , timeout = Nothing
-        , withCredentials = False
+        , tracker = Nothing
         }  
 
 totalJokePages : number
