@@ -4,7 +4,7 @@
 
 This repository provides the start of an [Elm](https://guide.elm-lang.org/) application to display a list of random ["dad jokes"](https://icanhazdadjoke.com), with each joke having a "user" avatar from [placekitten](https://placekitten.com).
 
-Once you [install Elm](https://guide.elm-lang.org/install.html), [install elm-test](//https://github.com/elm-explorations/test), and clone this repo, you should be able to run `elm reactor` and browse to `http://localhost:8000/src/main.elm` to see the application.
+Once you [install Elm](https://guide.elm-lang.org/install.html), [install elm-test](https://github.com/elm-explorations/test), and clone this repo, you should be able to run `elm reactor` and browse to `http://localhost:8000/src/main.elm` to see the application.
 
 The application currently pulls down a random page of jokes. Then for each joke it uses the length of the joke text to determine which avatar to use.
 
