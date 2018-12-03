@@ -20,7 +20,7 @@ When you are finished, submit a pull request against this repository.
 
 #### Core Features
 
-* Calculate and show word count on each joke. (Please write the word count function with built-in String/Regex functions instead of using a separate library.) Users should be able to sort jokes by word count.
+* Calculate and show word count on each joke. (Please write the word count function with built-in String/Regex functions _besides_ `String.words()` - and without using a separate library.) Users should be able to sort jokes by word count.
 * Add a user-editable list of "profanity" filters that allow users to replace one word with another, e.g.
   * `Replace [ dog ] with [ puppy ]`
   * `Replace [ kitten ] with [ 🐈 ]`
