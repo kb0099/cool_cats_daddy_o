@@ -63,7 +63,9 @@ renderJoke joke =
   ] [
     img (itemStyle ++ [src joke.avatarUrl, width 50, height 50]) [text(joke.avatarUrl)],
     div (itemStyle ++ [style "font-style" "italic"]) [text(joke.id)],
-    div (itemStyle ++ [style "font-weight" "bold"]) [text(joke.message)]
+    div (itemStyle ++ [style "font-weight" "bold"]) [text(joke.message)],
+    div (itemStyle ++ [style "font-weight" "bold", style "border" "1px solid orange"]) 
+      [ text("Word Count:" ++ String.fromInt (jokeNumWords joke.message)) ]
   ]
 
 view : Model -> Html Msg

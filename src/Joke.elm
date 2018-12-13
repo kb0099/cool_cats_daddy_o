@@ -57,3 +57,7 @@ jokeRequest page jokeReceiver =
 
 totalJokePages : number
 totalJokePages = 21
+
+
+jokeNumWords: String -> Int
+jokeNumWords message = List.length (String.split " " message)
